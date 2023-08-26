@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Swagger Petstore - OpenAPI 3.0
+  title: Swagger Hospital map - OpenAPI 3.0
   description: |-
     This is a hospital map API based on OpenAPI 3.0 specification
   version: 1.0.11
@@ -27,14 +27,17 @@ paths:
           in: query
           schema:
             type: number
+        - name: language
+          required: false
+          in: query
+          schema:
+            type: string
+            enum: [en, ch, kr, esp, tw, de, translator]
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/HospitalList'          
-            application/xml:
               schema:
                 $ref: '#/components/schemas/HospitalList'
         '400':
@@ -66,9 +69,6 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Hospital'          
-            application/xml:
-              schema:
                 $ref: '#/components/schemas/Hospital'
         '400':
           description: Invalid ID supplied
@@ -76,6 +76,10 @@ paths:
           description: Internal server error
 components:
   schemas:
+    SupportedLanguages:
+      type: array
+      items:
+        enum: [en, ch, kr, esp, tw, de, translator]
     Hospital:
       properties:
         id:
@@ -90,10 +94,7 @@ components:
         address:
           type: string
         supportedLanguages:
-          type: array
-          items:
-            type: string
-            enum: [en, jp, ch, kr, vi, esp, pt, fr, de, mya, ne, translator]
+          $ref: '#/components/schemas/SupportedLanguages'
         examinationTypes:
           type: array
           items:
@@ -127,7 +128,11 @@ components:
             id:
               type: integer
               format: int64
+            name:
+              type: string
             longitude:
               type: number
             latitude:
               type: number
+            supportedLanguages:
+              $ref: '#/components/schemas/SupportedLanguages'
