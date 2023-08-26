@@ -1,0 +1,16 @@
+body { 
+    margin: 0; 
+    padding: 0; 
+}
+html, body, #map { 
+    height: 100%; 
+}
+.maplibregl-marker:hover {
+    cursor: pointer;
+
+}
+
+.custom-nav{
+    max-width: 70%;
+    
+}
