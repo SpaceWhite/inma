@@ -40,7 +40,7 @@ for i, hospital in enumerate(nakano_hospitals):
     phone = hospital[11]
     if data.get(phone, ""):
         data[phone]["types"] = (";".join(hospital[22:])).split(";")
+        data[phone]["longitude"] = hospital[10]
+        data[phone]["latitude"] = hospital[9]
 
 print(data)
-
-
