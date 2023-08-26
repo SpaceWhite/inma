@@ -27,6 +27,12 @@ paths:
           in: query
           schema:
             type: number
+        - name: language
+          required: false
+          in: query
+          schema:
+            type: string
+            enum: [en, ch, kr, esp, tw, de, translator]
       responses:
         '200':
           description: Successful operation
