@@ -4,8 +4,8 @@
     <title>Map with marker</title>
     <meta charset='utf-8'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='./css/maplibre-gl.css' />
-    <script src='./js/maplibre-gl.js'></script>
+    <link rel='stylesheet' href='./dist/maplibre-gl.css' />
+    <script src='./dist/maplibre-gl.js'></script>
     <style>
         body { margin: 0; padding: 0; }
         html, body, #map { height: 100%; }
@@ -15,33 +15,6 @@
 <body>
 <div id="map"></div>
 
-<script>
-    const map = new maplibregl.Map({
-        container: 'map',
-        style: './css/openmaptiles-style.json',
-        center: [139.839478, 35.652832],
-        zoom: 10
-    });
-
-    const hospitalCoordinates = [
-        [139.671204, 35.681717],
-        [139.671509, 35.683224],
-        [139.671494, 35.683605],
-        [139.671539, 35.685516],
-        [139.670364, 35.686111],
-        [139.669266, 35.685276],
-        [139.668777, 35.684059] 
-    ];
-
-    hospitalCoordinates.forEach(hospitalCoordinate => {
-        const marker = new maplibregl.Marker()
-            .setLngLat(hospitalCoordinate)
-            .addTo(map);
-
-        marker.getElement().addEventListener('click', () => {
-            alert(1);
-        }); 
-    });
-</script>
+<script src='./dist/index.js'></script>
 </body>
 </html>
