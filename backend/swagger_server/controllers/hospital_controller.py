@@ -3,6 +3,7 @@ import six
 
 from swagger_server.models.hospital import Hospital  # noqa: E501
 from swagger_server.models.hospital_list import HospitalList  # noqa: E501
+from swagger_server.models.supported_languages import SupportedLanguages  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -26,8 +27,8 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'name': "クリニッexamination_typesクA",
         'address': "中野",
         'supported_languages': ["en"],
-        'examination_types': "doctor",
-        'business_hours': "13:00-17:00",
+        'examination_types': ["doctor", "dentist"],
+        'business_hours': ["Monday", "13:00", "17:00"],
         'post_number': "910-0283",
         'telephone': "873496329",
         'website': "XXX.gmail.com"
@@ -37,9 +38,9 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'latitude': 136.87870,
         'name': "クリニックB",
         'address': "中野",
-        'supported_languages': ["ch", "kr"],
-        'examination_types': "doctor",
-        'business_hours': "10:00-16:00",
+        'supported_languages': ["kr","ch"],
+        'examination_types': ["doctor"],
+        'business_hours': ["Tuesday", "13:00", "17:00"],
         'post_number': "910-0383",
         'telephone': "8734456329",
         'website': "XXX.gmail.com"
@@ -49,9 +50,9 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'latitude': 133.87450,
         'name': "クリニックC",
         'address': "中野",
-        'supported_languages': [],
-        'examination_types': "doctor",
-        'business_hours': "12:00-17:00",
+        'supported_languages': ["en"],
+        'examination_types': ["doctor"],
+        'business_hours': ["Friday", "13:00", "17:00"],
         'post_number': "910-0283",
         'telephone': "8734534329",
         'website': "XXX.gmail.com"
