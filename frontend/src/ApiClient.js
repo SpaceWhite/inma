@@ -34,7 +34,7 @@ export class ApiClient {
          * @type {String}
          * @default http://localhost/api/v1
          */
-        this.basePath = 'http://localhost/api/v1'.replace(/\/+$/, '');
+        this.basePath = 'http://170.187.141.21:8080/api/v1/hospital'.replace(/\/+$/, '');
 
         /**
          * The authentication methods to be included for all API calls.

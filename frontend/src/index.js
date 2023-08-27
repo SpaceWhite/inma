@@ -5,7 +5,7 @@ const map = new maplibregl.Map({
     zoom: 10
 });
 
-import ApiClient from "./ApiClient.js";
+//import ApiClient from "./ApiClient.js";
 
 const hospitalCoordinates = [
     [139.671204, 35.681717],
@@ -26,3 +26,39 @@ hospitalCoordinates.forEach(hospitalCoordinate => {
         alert(1);
     }); 
 });
+
+
+//---------------Get data from Json--------------------
+
+
+
+const url = 'http://170.187.141.21:8080/api/v1/hospital'
+
+fetch(url)
+  .then(function (response) {
+    return response.json();
+    //return console.log(response.json());
+  })
+  .then(function (data) {
+    appendData(data);
+  })
+  .catch(function (err) {
+    console.log('error:' + err);
+  });
+
+  
+  function appendData(data) {
+    var mainContainer = document.getElementById("myData");
+    for (var i = 0; i < data.length; i++) {
+      var div = document.createElement("div");
+      div.innerHTML = 'Name: ' + data[i].latitude + ' ' + data[i].longitude;
+      mainContainer.appendChild(div);
+
+    }
+  }
+
+  
+
+ 
+
+  
