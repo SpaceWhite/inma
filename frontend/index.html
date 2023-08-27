@@ -17,33 +17,64 @@
 </head>
     <body>
 
-
-        <nav class="navbar bg-body-tertiary bg-dark text-white">
-            <div class="custom-nav  container-fluid">
-              <span class="navbar-brand mb-0 h1">International Medical Aid Platform</span>
-            </div>
+     <nav class="navbar bg-body-tertiary sticky-top bg-white">
+            <a class="navbar-brand" href="#">
+            <img class="logoImage" src="/frontend/public/Inma.svg" width="30" height="30" alt="">
+          </a>
+        
           </nav>
+   
 
           <div class="sidebar" style="float: none; margin: 0 auto;">
 
+            <h1 class="titleSidebar">Recomended hospitals</h1>
+
             <div class="row">
-                <div class="col-sm-3 hospitalBox">
+                <div class="col hospitalBox">
                     <div class="thumbHospital">
-                        <img src="https://images.unsplash.com/photo-1692854236272-cc49076a2629?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="">
+                        <img class="thumbImg" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="">
                     </div>
-                    <h6>Tokyo Metro Hospital</h6>
-                   <p>EN, ES, JP, CH</p>
-                
+                    <h6>National Center for Global Health and Medicine</h6>
+                    <p class="hospitalBoxAdress">1 Chome-21-1 Toyama, Shinjuku City, Tokyo 162-8655</p>
+                    <div class="langBox">
+                        <p class="langBoxTextHead">Language</p>
+                        <p class="langBoxTextlang"><b> English, Chinese, </b ></p>
+                        <p class="langBoxTextType"> Machine, Translator </p>
+                    </div>
                 </div>
-                
+
+                <div class="col hospitalBox">
+                    <div class="thumbHospital">
+                        <img class="thumbImg" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="">
+                    </div>
+                    <h6>National Center for Global Health and Medicine</h6>
+                    <p class="hospitalBoxAdress">1 Chome-21-1 Toyama, Shinjuku City, Tokyo 162-8655</p>
+                    <div class="langBox">
+                        <p class="langBoxTextHead">Language</p>
+                        <p class="langBoxTextlang"><b> English, Chinese, </b ></p>
+                        <p class="langBoxTextType"> Machine, Translator </p>
+                    </div>
+                </div>
+
+                <div class="col hospitalBox">
+                    <div class="thumbHospital">
+                        <img class="thumbImg" src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" alt="">
+                    </div>
+                    <h6>National Center for Global Health and Medicine</h6>
+                    <p class="hospitalBoxAdress">1 Chome-21-1 Toyama, Shinjuku City, Tokyo 162-8655</p>
+                    <div class="langBox">
+                        <p class="langBoxTextHead">Language</p>
+                        <p class="langBoxTextlang"><b> English, Chinese, </b ></p>
+                        <p class="langBoxTextType"> Machine, Translator </p>
+                    </div>
+                </div>
+
             </div>
-
-
           </div>
 
           <div class="container-fluid">
             <div class="row content wrapper"> 
-                <div id="map"></div>
+               <div id="map"></div>
             </div>
         </div>      
 
