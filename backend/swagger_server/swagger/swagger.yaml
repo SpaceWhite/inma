@@ -1,0 +1,203 @@
+openapi: 3.0.3
+info:
+  title: Swagger Hospital map - OpenAPI 3.0
+  description: This is a hospital map API based on OpenAPI 3.0 specification
+  version: 1.0.11
+servers:
+- url: http://localhost/api/v1
+tags:
+- name: hospital
+  description: Hospital API
+paths:
+  /hospital:
+    get:
+      tags:
+      - hospital
+      summary: Get list of hospital
+      operationId: get_hospital_list
+      parameters:
+      - name: longitude
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: latitude
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: number
+      - name: language
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          enum:
+          - en
+          - ch
+          - kr
+          - esp
+          - tw
+          - de
+          - translator
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HospitalList'
+        "400":
+          description: Invalid parameter supplied
+        "500":
+          description: Internal server error
+      x-openapi-router-controller: swagger_server.controllers.hospital_controller
+  /hospital/{hospital_id}:
+    get:
+      tags:
+      - hospital
+      summary: Get hospital detail
+      description: Get hospital detail by `id`
+      operationId: get_hospital
+      parameters:
+      - name: hospital_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: language
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hospital'
+        "400":
+          description: Invalid ID supplied
+        "500":
+          description: Internal server error
+      x-openapi-router-controller: swagger_server.controllers.hospital_controller
+components:
+  schemas:
+    SupportedLanguages:
+      type: array
+      items:
+        type: string
+        enum:
+        - en
+        - ch
+        - kr
+        - esp
+        - tw
+        - de
+        - translator
+    Hospital:
+      properties:
+        id:
+          type: integer
+          format: int64
+        longitude:
+          type: number
+        latitude:
+          type: number
+        name:
+          type: string
+        address:
+          type: string
+        supportedLanguages:
+          $ref: '#/components/schemas/SupportedLanguages'
+        examinationTypes:
+          type: array
+          items:
+            type: string
+        businessHours:
+          type: array
+          items:
+            $ref: '#/components/schemas/Hospital_businessHours'
+        postNumber:
+          type: string
+        telephone:
+          type: string
+        website:
+          type: string
+      example:
+        website: website
+        address: address
+        supportedLanguages:
+        - ""
+        - ""
+        examinationTypes:
+        - examinationTypes
+        - examinationTypes
+        latitude: 1.46581298050294517310021547018550336360931396484375
+        name: name
+        businessHours:
+        - from: from
+          to: to
+          day: sunday
+        - from: from
+          to: to
+          day: sunday
+        telephone: telephone
+        id: 0
+        postNumber: postNumber
+        longitude: 6.02745618307040320615897144307382404804229736328125
+    HospitalList:
+      properties:
+        data:
+          type: array
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            longitude:
+              type: number
+            latitude:
+              type: number
+            supportedLanguages:
+              $ref: '#/components/schemas/SupportedLanguages'
+          items:
+            type: object
+      example:
+        data:
+        - {}
+        - {}
+    Hospital_businessHours:
+      type: object
+      properties:
+        day:
+          type: string
+          enum:
+          - sunday
+          - monday
+          - tuesday
+          - wednesday
+          - thursday
+          - friday
+          - saturday
+        from:
+          type: string
+        to:
+          type: string
+      example:
+        from: from
+        to: to
+        day: sunday
+
