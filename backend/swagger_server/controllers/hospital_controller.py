@@ -28,7 +28,12 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'address': "中野",
         'supported_languages': ["en"],
         'examination_types': ["doctor", "dentist"],
-        'business_hours': ["Monday", "13:00", "17:00"],
+        'business_hours': [{
+                            "day": "Wednesday",
+                            "from": "10:00",
+                            "to":"12:00"
+                            }
+                            ],
         'post_number': "910-0283",
         'telephone': "873496329",
         'website': "XXX.gmail.com"
@@ -40,7 +45,12 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'address': "中野",
         'supported_languages': ["kr","ch"],
         'examination_types': ["doctor"],
-        'business_hours': ["Tuesday", "13:00", "17:00"],
+        'business_hours': [{
+                            "day": "Tuesday",
+                            "from": "12:00",
+                            "to":"17:00"
+                            }
+                            ],
         'post_number': "910-0383",
         'telephone': "8734456329",
         'website': "XXX.gmail.com"
@@ -52,7 +62,12 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
         'address': "中野",
         'supported_languages': ["en"],
         'examination_types': ["doctor"],
-        'business_hours': ["Friday", "13:00", "17:00"],
+        'business_hours': [{
+                            "day": "Monday",
+                            "from": "15:00",
+                            "to":"17:00"
+                            }
+                            ],
         'post_number': "910-0283",
         'telephone': "8734534329",
         'website': "XXX.gmail.com"
