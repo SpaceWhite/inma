@@ -20,7 +20,7 @@ class TestHospitalController(BaseTestCase):
         """
         query_string = [('language', 'language_example')]
         response = self.client.open(
-            '/api/v1/hospital/{id}'.format(id=789),
+            '/api/v1/hospital/{hospital_id}'.format(hospital_id=789),
             method='GET',
             query_string=query_string)
         self.assert200(response,
@@ -32,7 +32,8 @@ class TestHospitalController(BaseTestCase):
         Get list of hospital
         """
         query_string = [('longitude', 1.2),
-                        ('latitude', 1.2)]
+                        ('latitude', 1.2),
+                        ('language', 'language_example')]
         response = self.client.open(
             '/api/v1/hospital',
             method='GET',

@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="Swagger Petstore - OpenAPI 3.0",
+    description="Swagger Hospital map - OpenAPI 3.0",
     author_email="",
     url="",
-    keywords=["Swagger", "Swagger Petstore - OpenAPI 3.0"],
+    keywords=["Swagger", "Swagger Hospital map - OpenAPI 3.0"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},

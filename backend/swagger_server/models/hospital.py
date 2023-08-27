@@ -7,6 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from swagger_server.models.base_model_ import Model
 from swagger_server.models.hospital_business_hours import HospitalBusinessHours  # noqa: F401,E501
+from swagger_server.models.supported_languages import SupportedLanguages  # noqa: F401,E501
 from swagger_server import util
 
 
@@ -15,7 +16,7 @@ class Hospital(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, id: int=None, longitude: float=None, latitude: float=None, name: str=None, address: str=None, supported_languages: List[str]=None, examination_types: List[str]=None, business_hours: List[HospitalBusinessHours]=None, post_number: str=None, telephone: str=None, website: str=None):  # noqa: E501
+    def __init__(self, id: int=None, longitude: float=None, latitude: float=None, name: str=None, address: str=None, supported_languages: SupportedLanguages=None, examination_types: List[str]=None, business_hours: List[HospitalBusinessHours]=None, post_number: str=None, telephone: str=None, website: str=None):  # noqa: E501
         """Hospital - a model defined in Swagger
 
         :param id: The id of this Hospital.  # noqa: E501
@@ -29,7 +30,7 @@ class Hospital(Model):
         :param address: The address of this Hospital.  # noqa: E501
         :type address: str
         :param supported_languages: The supported_languages of this Hospital.  # noqa: E501
-        :type supported_languages: List[str]
+        :type supported_languages: SupportedLanguages
         :param examination_types: The examination_types of this Hospital.  # noqa: E501
         :type examination_types: List[str]
         :param business_hours: The business_hours of this Hospital.  # noqa: E501
@@ -47,7 +48,7 @@ class Hospital(Model):
             'latitude': float,
             'name': str,
             'address': str,
-            'supported_languages': List[str],
+            'supported_languages': SupportedLanguages,
             'examination_types': List[str],
             'business_hours': List[HospitalBusinessHours],
             'post_number': str,
@@ -197,30 +198,23 @@ class Hospital(Model):
         self._address = address
 
     @property
-    def supported_languages(self) -> List[str]:
+    def supported_languages(self) -> SupportedLanguages:
         """Gets the supported_languages of this Hospital.
 
 
         :return: The supported_languages of this Hospital.
-        :rtype: List[str]
+        :rtype: SupportedLanguages
         """
         return self._supported_languages
 
     @supported_languages.setter
-    def supported_languages(self, supported_languages: List[str]):
+    def supported_languages(self, supported_languages: SupportedLanguages):
         """Sets the supported_languages of this Hospital.
 
 
         :param supported_languages: The supported_languages of this Hospital.
-        :type supported_languages: List[str]
+        :type supported_languages: SupportedLanguages
         """
-        allowed_values = ["en", "jp", "ch", "kr", "vi", "esp", "pt", "fr", "de", "mya", "ne", "translator"]  # noqa: E501
-        if not set(supported_languages).issubset(set(allowed_values)):
-            raise ValueError(
-                "Invalid values for `supported_languages` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(supported_languages) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
 
         self._supported_languages = supported_languages
 

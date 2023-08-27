@@ -44,7 +44,7 @@ paths:
           description: Invalid parameter supplied
         '500':
           description: Internal server error
-  /hospital/{id}:
+  /hospital/{hospital_id}:
     get:
       summary: Get hospital detail
       description: Get hospital detail by `id`
@@ -52,7 +52,7 @@ paths:
       tags:
         - hospital
       parameters:
-        - name: id
+        - name: hospital_id
           in: path
           required: true
           schema:
@@ -136,3 +136,4 @@ components:
               type: number
             supportedLanguages:
               $ref: '#/components/schemas/SupportedLanguages'
+
