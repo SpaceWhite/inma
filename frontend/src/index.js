@@ -5,6 +5,8 @@ const map = new maplibregl.Map({
     zoom: 10
 });
 
+import ApiClient from "./ApiClient.js";
+
 const hospitalCoordinates = [
     [139.671204, 35.681717],
     [139.671509, 35.683224],
