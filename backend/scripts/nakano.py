@@ -2,10 +2,10 @@ from sklearn.preprocessing import LabelEncoder
 
 le = LabelEncoder()
 
-with open("data/all.csv") as all_csv:
+with open("../data/all.csv") as all_csv:
     all_hospitals = all_csv.read().split("\n")[1:]
 
-with open("data/nakano.csv") as nakano_csv:
+with open("../data/nakano.csv") as nakano_csv:
     nakano_hospitals = nakano_csv.read().split("\n")[1:]
 
 phone1 = []
