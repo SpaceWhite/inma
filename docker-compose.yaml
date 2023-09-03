@@ -1,0 +1,9 @@
+services:
+  inma-frontend:
+    build: frontend/
+    ports:
+      - "80:80"
+  inma-backend:
+    build: backend/
+    ports:
+      - "8080:8080"
