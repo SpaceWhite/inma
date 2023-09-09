@@ -1,12 +1,24 @@
 import * as React from "react";
 import { cookies } from 'next/headers';
-import Map from "../components/map"; 
-import Sidebar from "../components/sidebar";
+import Main from "../components/main";
+import Welcome from "../components/welcome";
 import Setup from "../components/setup";
 import SecondSetup from "../components/secondsetup";
 
 function App() {
 	const cookieStore = cookies();
+
+  // TODO : do not use cookie for routing decision
+ 
+  if (cookieStore.get("welcome") == undefined) {
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <div className="mx-auto max-w-2xl">
+          <Welcome/>
+        </div>
+			</div>
+    )
+  }
 
 	if (cookieStore.get("languages") == undefined) {
 		return (
@@ -27,12 +39,7 @@ function App() {
   }
 
 	return (
-			<div className="app-container">
-				<Sidebar/>
-				<div className="map-wrapper">
-					<Map/>
-				</div>
-			</div>
+    <Main/>
 	);
 }
 
