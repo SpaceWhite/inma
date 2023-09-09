@@ -5,7 +5,9 @@ from swagger_server.models.hospital import Hospital  # noqa: E501
 from swagger_server.models.hospital_list import HospitalList  # noqa: E501
 from swagger_server.models.supported_languages import SupportedLanguages  # noqa: F401,E501
 from swagger_server import util
-
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import text
+db = SQLAlchemy()
 
 def get_hospital(hospital_id, language=None):  # noqa: E501
     """Get hospital detail
@@ -19,7 +21,7 @@ def get_hospital(hospital_id, language=None):  # noqa: E501
 
     :rtype: Hospital
     """
-    #return 'do some magic!'
+
     data = [{
         "id":1,
         'longitude': 35.6577,
@@ -89,7 +91,8 @@ def get_hospital_list(longitude=None, latitude=None, language=None):  # noqa: E5
 
     :rtype: HospitalList
     """
-
+    test = db.session.execute(text('SELECT * FROM hospital limit 1'))
+    print(test)
     data = [{
         "id":1,
         'longitude': 35.6577,
