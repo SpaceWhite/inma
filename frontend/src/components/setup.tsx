@@ -32,7 +32,13 @@ export default function Setup() {
       <form onSubmit={setLanguageCookie}>
         <div className="space-y-10">
           <div className="border-b border-gray-900/10 pb-12">
-            <h1 className="text-2xl font-semibold leading-7 text-gray-900">First, we need a little information about you</h1>
+            <h1 className="text-2xl pb-6 font-semibold leading-7 text-gray-900">First, we need a little information about you</h1>
+            <p className="text-lg leading-6 text-gray-600">
+              Where are you?
+            </p>
+            <div className="col-span-full py-4">
+                <input/>
+            </div>
             <p className="text-lg leading-6 text-gray-600">
               What language do you understand?
             </p>
