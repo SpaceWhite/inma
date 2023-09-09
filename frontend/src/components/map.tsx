@@ -12,7 +12,6 @@ interface MapProps {
 }
 
 function Map({
-	initialOptions = {},
 	onCreated,
 	onLoaded,
 	onRemoved,
@@ -21,14 +20,17 @@ function Map({
 
 	const mapNode = React.useRef(null);
 
+  // TODO : This is hack. Fix UI instead of using offset
+  const offsetX = -0.03;
+
 	React.useEffect(() => {
 		const node = mapNode.current;
 		if (typeof window === "undefined" || node === null) return;
 		const mapboxMap = new maplibregl.Map({
 			container: node,
 			style: "https://tile.openstreetmap.jp/styles/osm-bright/style.json",
-			zoom: 9,
-			...initialOptions,
+			zoom: 13,
+      center: [139.7538 + offsetX, 35.6940],
 		});
 
 		setMap(mapboxMap);
