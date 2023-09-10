@@ -22,9 +22,6 @@ function Map({
 
 	const mapNode = React.useRef(null);
 
-  // TODO : This is hack. Fix UI instead of using offset
-  const offsetX = -0.00;
-
 	React.useEffect(() => {
 		const node = mapNode.current;
 		if (typeof window === "undefined" || node === null) return;
@@ -33,8 +30,7 @@ function Map({
 			//style: "https://tile.openstreetmap.jp/styles/osm-bright-en/style.json",
 			style: "https://tile.openstreetmap.jp/styles/maptiler-basic-en/style.json",
 			zoom: 15,
-      //center: [139.7538 + offsetX, 35.6940],
-      center: [139.67103 + offsetX, 35.698172],
+      center: [139.67103, 35.698172],
 		});
 
 		setMap(mapboxMap);
