@@ -1,15 +1,17 @@
-FROM node:16 as build
-
-RUN mkdir /app
-
-COPY . /app/
+FROM node:16
 
 WORKDIR /app
 
-RUN npm i
+COPY ./package*.json ./
+
+RUN npm install --production
+
+COPY ./ ./
 
 RUN npm run build
 
-FROM nginx:latest
+EXPOSE 3000
 
-COPY --from=build /app/dist/ /usr/share/nginx/html
+USER node
+
+CMD [ "npm", "start" ]
